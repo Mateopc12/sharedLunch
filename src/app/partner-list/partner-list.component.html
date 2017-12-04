@@ -1,3 +1,16 @@
-<div *ngFor="let partner of partners">
-  {{partner}}
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>COMPAÑERO</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
 </div>
+
+<div [hidden]="!partners || partners.length == 0">
+    <h4>HISTORY</h4>
+    <div *ngFor="let partner of partners">
+        <app-partner-item [partner]="partner" ></app-partner-item>
+    </div>
+  </div>

@@ -5,7 +5,7 @@ import { IUser } from './user.interface';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class LoginService {
+export class UserService {
   username = 'mateo.parra@yuxiglobal.com';
   password = 'mateo';
   url = 'https://shared-lunch.firebaseio.com/users';
@@ -25,5 +25,4 @@ export class LoginService {
 
     return null;
   }
-
 }
