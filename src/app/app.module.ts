@@ -9,13 +9,15 @@ import { MatFormFieldModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { PartnerListComponent } from './partner-list/partner-list.component';
 import { LoginComponent } from './login/login.component';
+import { PartnerDetailComponent } from './partner-list/partner-detail/partner-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PartnerListComponent,
-    LoginComponent
+    LoginComponent,
+    PartnerDetailComponent
   ],
   imports: [
     BrowserModule,
