@@ -10,7 +10,13 @@ export class UserService {
   password = 'mateo';
   url = 'https://shared-lunch.firebaseio.com/users';
   id = '-KkI14PCd_DplJLln3kG';
-  constructor(private http: HttpClient) {
+  loggedUser: IUser;
+  constructor(private http: HttpClient
+      ) {
+  }
+
+  getLoggedUser(): IUser {
+    return this.loggedUser;
   }
 
   getPartner(id: string): Observable<IUser> {
@@ -20,7 +26,7 @@ export class UserService {
 
   authenticate(username: string, password: string): Observable<IUser> {
     if (username === this.username && password === this.password) {
-      return this.getPartner(this.id);
+      return this.http.get(`${this.url}/${this.id}.json`).map((user: IUser) => this.loggedUser = user);
     }
 
     return null;

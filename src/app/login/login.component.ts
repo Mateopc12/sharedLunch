@@ -6,6 +6,7 @@ import { NgModel } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import 'rxjs/add/operator/map';
 import { forkJoin } from 'rxjs/observable/forkJoin';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
   loggedUser: IUser;
   currentPartner: IUser;
   partners: IUser[] = [];
-  constructor(private userService: UserService) {
+  constructor(
+    private userService: UserService,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -31,6 +34,7 @@ export class LoginComponent implements OnInit {
     if (authenticate) {
       authenticate.subscribe((user: IUser) => {
         this.loggedUser = user;
+        this.router.navigate(['partnerList']);
       }, error => console.log('error:', error));
     }
   }

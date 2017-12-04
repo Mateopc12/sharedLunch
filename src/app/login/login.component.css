@@ -1,0 +1,9 @@
+.general-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.general-container > * {
+    width: 80%;
+}
