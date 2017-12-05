@@ -16,9 +16,6 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   username = 'mateo.parra@yuxiglobal.com';
   password = 'mateo';
-  loggedUser: IUser;
-  currentPartner: IUser;
-  partners: IUser[] = [];
   constructor(
     private userService: UserService,
     private router: Router) {
@@ -33,7 +30,6 @@ export class LoginComponent implements OnInit {
 
     if (authenticate) {
       authenticate.subscribe((user: IUser) => {
-        this.loggedUser = user;
         this.router.navigate(['partnerList']);
       }, error => console.log('error:', error));
     }

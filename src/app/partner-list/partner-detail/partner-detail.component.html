@@ -1,0 +1,15 @@
+<div class="center">
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{partner.firstName}} {{partner.lastName}}</mat-card-title>
+        <mat-card-subtitle>{{partner.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+            <app-rating [inactive]="inactive" [rating]="partner.rating"
+            [itemId]="partner.id"
+            (ratingClick)="ratingComponetClick($event)">
+            </app-rating>
+    </mat-card-content>
+</mat-card>
+</div>

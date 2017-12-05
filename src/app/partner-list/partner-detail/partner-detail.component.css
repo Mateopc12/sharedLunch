@@ -1,0 +1,27 @@
+.center {
+  text-align: center;
+  margin: auto;
+  width: 90%;
+  padding: 10px;
+}
+
+.example-card {
+  width: 90%;
+  text-align: center;
+}
+.example-header-image {
+  background-image: url('http://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.mat-card-header {
+  display: -webkit-inline-box;
+  flex-direction: column;
+}
+
+.mat-card-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}

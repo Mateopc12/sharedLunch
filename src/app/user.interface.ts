@@ -7,6 +7,8 @@ export interface IUser {
     location: number;
     matchConfirmed: boolean;
     matches: IMatch;
+    id: string;
+    rating: number;
 }
 
 export interface IMatch {

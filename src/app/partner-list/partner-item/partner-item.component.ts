@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IUser } from '../../user.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-partner-item',
@@ -8,9 +9,13 @@ import { IUser } from '../../user.interface';
 })
 export class PartnerItemComponent implements OnInit {
   @Input() partner: IUser;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToDetail() {
+    this.router.navigate([`partnerDetail/${this.partner.id}/true`]);
   }
 
 }

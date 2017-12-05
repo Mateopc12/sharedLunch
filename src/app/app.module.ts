@@ -1,8 +1,9 @@
+import { AppRoutingModule } from './app-routing.module';
+import { MaterialBundleModule } from './material-bundle/material-bundle.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatCardModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatToolbarModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { PartnerListComponent } from './partner-list/partner-list.component';
@@ -10,32 +11,28 @@ import { LoginComponent } from './login/login.component';
 import { PartnerDetailComponent } from './partner-list/partner-detail/partner-detail.component';
 import { UserService } from './user.service';
 import { PartnerItemComponent } from './partner-list/partner-item/partner-item.component';
-import { RouterModule, Routes } from '@angular/router';
+import { Error404Component } from './error-404/error-404.component';
+import { RatingComponent } from './rating/rating.component';
 
-const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'partnerList', component: PartnerListComponent },
-  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
-//  { path: '**', component: PageNotFoundComponent }
-];
 @NgModule({
   declarations: [
     AppComponent,
     PartnerListComponent,
     LoginComponent,
     PartnerDetailComponent,
-    PartnerItemComponent
+    PartnerItemComponent,
+    Error404Component,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    MatCardModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatToolbarModule,
+    MaterialBundleModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [UserService],
-  exports: [RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

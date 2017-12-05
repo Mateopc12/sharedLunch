@@ -1,26 +1,15 @@
 <div class="general-container">
-    <h1>
-        Almuerzos compartidos!
-      </h1>
-<mat-form-field>
+  <h1>
+    Almuerzos compartidos!
+  </h1>
+  <mat-form-field>
     <input type="email" matInput placeholder="Email" [(ngModel)]="username">
   </mat-form-field>
   <mat-form-field>
-      <input type="password" matInput placeholder="Password" [(ngModel)]="password">
-    </mat-form-field>
-    <div class="button-row">
+    <input type="password" matInput placeholder="Password" [(ngModel)]="password">
+  </mat-form-field>
+  <div class="button-row">
     <button mat-raised-button color="primary" (click)="login()">Login</button>
   </div>
-  <!-- <input type="email" [(ngModel)]="username" ng-model="username"> -->
-  <!-- <input type="email" [(ngModel)]="username">
-  <input type="password" [(ngModel)]="password"> -->
-  <!-- <button (click)="login()">Login</button> -->
-  <div *ngIf="loggedUser">
-    <h3>{{loggedUser.firstName}} {{loggedUser.lastName}} Logged In!</h3>
-    <div *ngIf="currentPartner">
-      <H5>Current Shared lunch</H5>
-      {{currentPartner.firstName}} {{currentPartner.lastName}}
-    </div>
-    <!-- <app-partner-list [loggedUser]="loggedUser"></app-partner-list> -->
-  </div>
+
 </div>

@@ -12,25 +12,20 @@ import { Router } from '@angular/router';
 })
 
 export class PartnerListComponent implements OnInit {
-  loggedUser: IUser;
   partners: IUser[] = [];
   constructor(private userService: UserService,
     private router: Router) {
-    this.loggedUser = this.userService.getLoggedUser();
+      this.partners = this.userService.getPartnerList();
   }
 
-  ngOnInit() {
-    if (this.loggedUser) {
-      const partnersGetArray: Observable<IUser>[] = [];
-      for (const match of Object.keys(this.loggedUser.matches)) {
-        partnersGetArray.push(this.userService.getPartner(match));
-      }
-      forkJoin(partnersGetArray).subscribe((partners: IUser[]) => {
-        this.partners = partners;
-      });
-    } else {
-      this.router.navigate(['']);
+  ngOnInit(): void {
+    if (this.partners === null || this.partners.length === 0) {
+      this.userService.getMatches();
     }
+  }
+
+  goToNextPartnerDetail(): void {
+    this.router.navigate([`partnerDetail/${this.userService.getCurrentMatch().id}/false`]);
   }
 
 }
