@@ -11,10 +11,10 @@ export class PartnerItemComponent implements OnInit {
   @Input() partner: IUser;
   constructor(private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  goToDetail() {
+  goToDetail(): void {
     this.router.navigate([`partnerDetail/${this.partner.id}/true`]);
   }
 

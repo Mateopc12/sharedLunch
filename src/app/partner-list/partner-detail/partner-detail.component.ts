@@ -19,7 +19,6 @@ export class PartnerDetailComponent implements OnInit {
     private router: Router) {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.inactive = params.get('inactive') === 'true';
-      console.log(this.inactive);
       if (!this.inactive) {
         this.partner = this.userService.getCurrentMatch();
       } else {
@@ -32,7 +31,7 @@ export class PartnerDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   ratingComponetClick(rating: number): void {

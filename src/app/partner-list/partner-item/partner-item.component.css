@@ -2,6 +2,11 @@
   cursor: pointer;
 }
 
+mat-card {
+  border-style: groove;
+  border-width: 0.5px;
+}
+
 .mat-card-subtitle {
   text-overflow: ellipsis;
   white-space: nowrap;

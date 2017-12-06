@@ -1,6 +1,5 @@
 import { IMatch } from './user.interface';
 import { Injectable } from '@angular/core';
-import 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { IUser } from './user.interface';
@@ -9,8 +8,6 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 
 @Injectable()
 export class UserService {
-  username = 'mateo.parra@yuxiglobal.com';
-  password = 'mateo';
   url = 'https://shared-lunch.firebaseio.com/users';
   id = '-KkI14PCd_DplJLln3kG';
   loggedUser: IUser;
@@ -38,11 +35,10 @@ export class UserService {
     this.currentMatch.rating = rating;
   }
 
-  getMatches(): void {
+  getMatches(): Observable<void[]> {
     if (this.loggedUser) {
-      const partnersObservableArray: Observable<IUser>[] = [];
       const partnersIdList = Object.keys(this.loggedUser.matches);
-      const observableBatch = [];
+      const observableBatch: Observable<void>[] = [];
       if (this.loggedUser.currentMatch) {
         this.http.get(`${this.url}/${this.loggedUser.currentMatch}.json`)
         .map((user: IUser) => {
@@ -62,7 +58,9 @@ export class UserService {
             }));
       });
 
-      forkJoin(observableBatch).subscribe();
+      return forkJoin(observableBatch);
+    } else {
+      return null;
     }
   }
 
@@ -72,10 +70,6 @@ export class UserService {
   }
 
   authenticate(username: string, password: string): Observable<IUser> {
-    if (username === this.username && password === this.password) {
       return this.http.get(`${this.url}/${this.id}.json`).map((user: IUser) => this.loggedUser = user);
-    }
-
-    return null;
   }
 }

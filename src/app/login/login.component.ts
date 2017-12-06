@@ -14,25 +14,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username = 'mateo.parra@yuxiglobal.com';
-  password = 'mateo';
+  username = '';
+  password = '';
+  isBusy: Observable<any>;
   constructor(
     private userService: UserService,
     private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  login() {
-    const authenticate = this.userService
+  login(): void {
+    this.isBusy = this.userService
       .authenticate(this.username, this.password);
 
-    if (authenticate) {
-      authenticate.subscribe((user: IUser) => {
-        this.router.navigate(['partnerList']);
-      }, error => console.log('error:', error));
-    }
+    this.isBusy.subscribe((user: IUser) => {
+      delete this.isBusy;
+      this.router.navigate(['partnerList']);
+    }, error => console.log('error:', error));
   }
-
 }

@@ -7,7 +7,8 @@ import { PartnerDetailComponent } from './partner-list/partner-detail/partner-de
 import { Error404Component } from './error-404/error-404.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'partnerList', component: PartnerListComponent },
   { path: 'partnerDetail/:id/:inactive', component: PartnerDetailComponent },
   { path: '**', component: Error404Component }

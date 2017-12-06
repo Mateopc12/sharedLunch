@@ -13,15 +13,13 @@ export class RatingComponent implements OnInit, OnChanges {
   @Output() ratingClick: EventEmitter<any> = new EventEmitter<any>();
 
   inpustName: string;
-  ngOnInit() {
+  ngOnInit(): void {
     this.inpustName = this.itemId + '_rating';
-    console.log(this.inactive);
   }
 
-  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }): void {
     this.itemId = changes.itemId.currentValue;
     this.rating = changes.rating.currentValue;
-    console.log(changes.inactive);
   }
 
   onClick(rating: number): void {

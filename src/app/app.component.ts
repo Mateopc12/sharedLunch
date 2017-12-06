@@ -9,8 +9,8 @@ import { Location } from '@angular/common';
 
 export class AppComponent {
   constructor(private _location: Location) { }
-  goBack() {
-    if (this._location.path() !== '') {
+  goBack(): void {
+    if (this._location.path().includes('partnerDetail')) {
       this._location.back();
     }
   }
