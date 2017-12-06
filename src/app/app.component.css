@@ -3,9 +3,7 @@ img {
 }
 
 .mat-toolbar.mat-primary {
-    border-color: #3f51b5;
+    background-color: #360045;
     border-width: 4px;
-    border-bottom-style: groove;
-    background: white;
-    color: rgba(255,255,255,.87);
+    color: white;
 }

@@ -31,7 +31,11 @@
 }
 
 .next-partner {
-  background-color: #3f51b5;
+  background: linear-gradient(to right,#bd8ddc,#fdea90);
+  /* background: -webkit-linear-gradient(,#fdea90);
+  background: -moz-linear-gradient(#bd8ddc,#fdea90);
+  background: -o-linear-gradient( #bd8ddc,#fdea90); */
+  
   color: white;
   cursor: pointer;
   height: 50px;
@@ -42,5 +46,5 @@
 }
 
 .next-partner:hover {
-  background-color:#6d7dce;
+  background: linear-gradient(to right,#ab57e2,#e8c942);
 }

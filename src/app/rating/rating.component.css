@@ -41,7 +41,10 @@ Adds the star symbol to the labels
 Colour for the applied rating stars
 ***************************/
 .rating > input:checked ~ label {
-    color: #f70;
+    background: -webkit-linear-gradient(#ab57e2,#e8c942);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
 }
 /***************************
 Colour for hovered stars when increasing the rating
@@ -49,6 +52,9 @@ Colour for hovered stars when increasing the rating
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
     color: gold;
+    background: -webkit-linear-gradient(#ab57e2,#e8c942);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 /***************************
 Colour for hovered stars when decreasing the rating
@@ -61,8 +67,16 @@ Colour for hovered stars when decreasing the rating
  
 .inactive:not(:checked) > label:hover,
 .inactive:not(:checked) > label:hover ~ label {
-/* .inactive > input:checked ~ label:hover,
-.inactive > input:checked ~ label:hover ~ label,
-.inactive > label:hover ~ input:checked ~ label  { */
     color:#ddd;
+    background: -webkit-linear-gradient(#ddd,#ddd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.inactive > input:checked ~ label:hover,
+.inactive > input:checked ~ label:hover ~ label,
+.inactive > label:hover ~ input:checked ~ label  { 
+    background: -webkit-linear-gradient(#ab57e2,#e8c942);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
